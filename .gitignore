@@ -45,4 +45,4 @@ terraform.rc
 # planout
 
 # Ignore Plan file
-latest-plan
+plan-*
