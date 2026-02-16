@@ -25,6 +25,7 @@ resource "aws_instance" "example-server" {
   security_groups             = [aws_security_group.example-sg.name]
   key_name                    = aws_key_pair.tf-public-key.key_name
   user_data                   = file("instance-init.sh")
+  iam_instance_profile        = aws_iam_instance_profile.iam-ro-inst-pfl.name
 
   tags = {
     Name = "example-server"
