@@ -1,7 +1,8 @@
 output "instance_ipv4" {
-  value = aws_instance.example-server.public_ip
+  value = try(aws_spot_instance_request.cheap-server.public_ip, "Public IP not ready yet...")
 }
 
+
 output "instance_dns" {
-  value = "http://${aws_instance.example-server.public_dns}"
+  value = try("http://${aws_spot_instance_request.cheap-server.public_dns}", "Public DNS not ready yet...")
 }
